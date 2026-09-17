@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Base configuration for every environment.
- * Host-specific overrides live in config.<host>.php next to this file
- * (config.onlybirds.at.test.php locally, config.onlybirds.at.php in production).
+ * Base configuration, tracked in git.
+ * Host-specific settings (debug, cache, secrets) go into config.<host>.php
+ * next to this file; those files are not tracked and are merged over this one by Kirby.
  */
 return [
     // one page, several languages: content/home/home.<code>.txt, URLs / and /it (see site/languages)

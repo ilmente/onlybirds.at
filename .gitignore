@@ -64,6 +64,7 @@ Icon
 # ---------------------------------
 /.claude
 
-# Production config: exists only on the server, never tracked
+
+# Host-specific configs (config.<host>.php): local or server only, never tracked
 # ---------------------------------
-/site/config/config.onlybirds.at.php
+/site/config/config.*.php

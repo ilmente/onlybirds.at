@@ -27,7 +27,7 @@ CSS and JS. Deploying the theme means deploying this folder.
 Outside the theme, deliberately small:
 
 - `site/config/config.php` – languages on, no browser-language detection, Panel UI in English.
-  `config.onlybirds.at.test.php` (local, debug on) and `config.onlybirds.at.php` (production, page cache on) override it per host.
+  Host-specific settings (debug, cache, secrets) live in `config.<host>.php` files that are not tracked.
 - `site/languages/de.php`, `it.php` – German is the default language at `/`, Italian at `/it`.
 - `content/` – editorial content, edited in the Panel on the server.
 
