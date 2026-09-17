@@ -10,14 +10,20 @@ use Kirby\Cms\Structure;
  */
 class TourPage extends Page
 {
+    /**
+     * The one image uploaded in the "Image" section of the tour.
+     */
     public function poster(): File|null
     {
-        return $this->poster_image()->toFile();
+        return $this->files()->template('image')->first();
     }
 
+    /**
+     * The one PDF uploaded in the "PDF" section of the tour.
+     */
     public function pdf(): File|null
     {
-        return $this->poster_pdf()->toFile();
+        return $this->files()->template('document')->first();
     }
 
     public function highlights(): Structure

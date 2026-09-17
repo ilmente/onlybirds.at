@@ -158,3 +158,12 @@ footer{padding:26px clamp(20px,5vw,64px);border-top:1px solid var(--line);displa
 .poster .links{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
 .poster .links .more{margin-top:0}
 .feature.no-poster{grid-template-columns:1fr}
+/* featured poster: never wider than 460px, whatever the screen; centred when stacked */
+.feature{grid-template-columns:minmax(0,460px) 1fr}
+@media(max-width:900px){
+  .feature{grid-template-columns:1fr}
+  .locandina.img{width:100%;max-width:460px;margin:0 auto}
+}
+/* anchor jumps land below the sticky header */
+section{scroll-margin-top:84px}
+@media(max-width:900px){section{scroll-margin-top:124px}}

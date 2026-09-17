@@ -63,7 +63,7 @@ tabs:
                 max: 1
                 translate: false
                 empty: Automatic – the published tour with the latest start date
-                help: The featured tour fills the large card at the top of the section; all other published tours are shown as cards below it.
+                help: The featured tour fills the large card at the top of the section; all other published tours are shown as cards below it. Shared by all languages, so change it while editing German.
           tours:
             type: pages
             label: Tours
@@ -118,14 +118,25 @@ tabs:
               - link
       sidebar:
         width: 1/3
-        fields:
+        sections:
           about_portrait:
-            extends: fields/image
+            type: files
             label: Portrait
-            help: Shown at 4:5. Uploaded once for all languages; click the image to edit its alternative text per language.
-          about_caption:
-            label: Portrait caption
-            type: text
+            template: image
+            max: 1
+            layout: cards
+            size: medium
+            image:
+              cover: true
+              ratio: 4/5
+            empty: No portrait yet – add one here.
+            help: One image for all languages, shown at 4:5. Click it to edit the alternative text per language.
+          about_caption_fields:
+            type: fields
+            fields:
+              about_caption:
+                label: Portrait caption
+                type: text
 
   gallery:
     label: Gallery
@@ -134,46 +145,30 @@ tabs:
       main:
         width: 2/3
         sections:
-          gallery_fields:
-            type: fields
-            fields:
-              gallery_heading:
-                label: Section heading
-                type: text
-              gallery_images:
-                label: Plates
-                type: files
-                multiple: true
-                max: 8
-                layout: cards
-                size: small
-                image:
-                  cover: true
-                  ratio: 3/4
-                query: page.files.filterBy("template", "plate")
-                uploads:
-                  template: plate
-                translate: false
-                empty: No plates selected – the gallery section is hidden.
-                help: Choose up to 8 plates and drag them into order. Click a plate to edit its bird name and scientific name.
-              gallery_note:
-                label: Note under the grid
-                type: text
-                help: Optional small mono line below the plates.
-      sidebar:
-        width: 1/3
-        sections:
           plates:
             type: files
-            label: Plate library
+            label: Plates
             template: plate
-            layout: list
+            max: 8
+            layout: cards
+            size: small
             image:
               cover: true
               ratio: 3/4
             text: "{{ file.bird }}"
             info: "{{ file.latin }}"
-            empty: No plates uploaded yet.
+            empty: No plates yet – the gallery section is hidden.
+            help: Up to 8 plates, shown on the site in this order (drag to sort). Click a plate to edit its bird name and scientific name.
+      sidebar:
+        width: 1/3
+        fields:
+          gallery_heading:
+            label: Section heading
+            type: text
+          gallery_note:
+            label: Note under the grid
+            type: text
+            help: Optional small mono line below the plates.
 
   contact:
     label: Contact

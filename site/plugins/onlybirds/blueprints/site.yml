@@ -36,11 +36,6 @@ columns:
             size: small
             maxlength: 160
             help: Used when a page has no meta description of its own.
-          share_image:
-            extends: fields/image
-            label: Share image
-            query: site.files.filterBy("template", "image")
-            help: Shown when a link to the site is shared on social networks (1200×630 px recommended).
 
   sidebar:
     width: 1/3
@@ -52,3 +47,14 @@ columns:
           - home
         create: false
         info: "{{ page.template }}"
+      share_image:
+        type: files
+        label: Share image
+        template: image
+        max: 1
+        layout: cards
+        image:
+          cover: true
+          ratio: 16/9
+        empty: No share image yet – add one here.
+        help: Shown when a link to the site is shared on social networks (1200×630 px recommended).

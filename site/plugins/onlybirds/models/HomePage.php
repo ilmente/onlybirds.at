@@ -85,13 +85,19 @@ class HomePage extends Page
         return $tours;
     }
 
+    /**
+     * The one image uploaded in the About tab (files section "Portrait").
+     */
     public function portrait(): File|null
     {
-        return $this->about_portrait()->toFile();
+        return $this->files()->template('image')->first();
     }
 
+    /**
+     * Gallery plates in the order set by dragging in the Panel.
+     */
     public function plates(): Files
     {
-        return $this->gallery_images()->toFiles();
+        return $this->files()->template('plate')->sorted();
     }
 }

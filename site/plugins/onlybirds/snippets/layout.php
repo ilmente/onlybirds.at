@@ -16,7 +16,7 @@ $metaTitle = $page->meta_title()->isNotEmpty()
         : $page->title() . ' · ' . $site->title());
 
 $metaDescription = $page->meta_description()->or($site->meta_description())->value();
-$shareImage      = $site->share_image()->toFile();
+$shareImage      = $site->files()->template('image')->first();
 ?>
 <!DOCTYPE html>
 <html lang="<?= $language->code() ?>">

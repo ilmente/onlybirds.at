@@ -85,12 +85,24 @@ columns:
           wagtail: Wagtail
   sidebar:
     width: 1/3
-    fields:
-      poster_image:
-        extends: fields/image
+    sections:
+      poster:
+        type: files
         label: Image
-        help: Poster of the tour (about 3:4). Large on the featured card, as a small thumbnail on the tour card. Click the image to edit its alternative text.
-      poster_pdf:
-        extends: fields/document
+        template: image
+        max: 1
+        layout: cards
+        size: medium
+        image:
+          cover: true
+          ratio: 3/4
+        empty: No image yet – add one here.
+        help: Poster of the tour (about 3:4), one image for all languages. Large on the featured card, as a small thumbnail on the tour card. Click it to edit the alternative text.
+      pdf:
+        type: files
         label: PDF
+        template: document
+        max: 1
+        layout: list
+        empty: No PDF yet – add one here.
         help: The image, the "Open poster" button and the card link open this PDF in a new tab. Hidden while empty.

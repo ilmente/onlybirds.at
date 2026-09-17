@@ -12,7 +12,6 @@ CSS and JS. Deploying the theme means deploying this folder.
 | `blueprints/pages/home.yml` | The one page: Hero · Excursions · About · Gallery · Contact · SEO tabs |
 | `blueprints/pages/tour.yml` | One tour (subpage of Home): tag, kicker, dates, text, highlights, website, partner, icon, image, PDF |
 | `blueprints/files/*.yml` | File types: `image` (alt text), `plate` (bird name + scientific name), `document` (PDF) |
-| `blueprints/fields/*.yml` | Shared field presets used via `extends:` (single image picker, single PDF picker) |
 | `templates/` | `home.php` (loops over the visible sections), `tour.php` (redirects to the excursions section), `error.php` |
 | `snippets/layout.php` | `<head>`, header, `<main>` slot, footer, scripts. Templates wrap their content in it with `snippet('layout', slots: true) … endsnippet()` |
 | `snippets/sections/*.php` | One snippet per section; rendered in the order `HomePage::visibleSections()` returns |
@@ -34,7 +33,14 @@ Outside the theme, deliberately small:
 ## Languages
 
 One page, one content file per language (`content/home/home.de.txt`, `home.it.txt`).
-Fields marked `translate: false` (images, PDF, dates, links, icons, email, phone) are shared.
+Fields marked `translate: false` (dates, links, icons, email, phone, featured tour) are shared and
+can only be edited while the Panel shows the default language.
+
+Images and PDFs are not fields but files sections, so they can be added in any language:
+the portrait is the one `image` file on Home, the plates are the `plate` files on Home (max 8,
+drag to sort), a tour's poster and PDF are its one `image` and one `document` file, the share
+image is the one `image` file on the Site. Each file is uploaded once; only its metadata
+(alt text, bird name) is per language.
 
 To add English:
 
