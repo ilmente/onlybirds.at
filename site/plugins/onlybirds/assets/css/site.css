@@ -194,3 +194,9 @@ section{scroll-margin-top:84px}
 .poster .text h3,.poster .text h4{font-family:var(--display);font-weight:500;font-size:17px;margin:10px 0 4px}
 .poster .text blockquote{margin:0 0 12px;padding-left:12px;border-left:2px solid var(--gold);font-style:italic;font-size:14px}
 .poster .text a{color:var(--gold)}
+/* hero sky in layers: gradient + pinned sun and flock + stretching hills (nothing cropped on wide screens) */
+.hero .sky{background:linear-gradient(180deg,#E9E4D4 0%,#E7E1CE 52%,#D9D3BE 100%);overflow:hidden}
+.hero .sun{position:absolute;left:75.7%;top:24%;width:clamp(72px,10vw,144px);aspect-ratio:1;border-radius:50%;background:var(--gold);opacity:.22;transform:translate(-50%,-50%)}
+.hero .flock{position:absolute;left:17.5%;top:13.5%;width:clamp(200px,30vw,430px);height:auto}
+.hero .hills{position:absolute;left:0;bottom:0;width:100%;height:clamp(180px,34%,320px)}
+@media(max-width:900px){.hero .sun{top:17%}}
