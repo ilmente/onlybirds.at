@@ -261,3 +261,16 @@ header.nav,section,footer,.hero .wrap,nav.links.open{padding-inline:var(--inline
 @media(max-width:600px){.lightbox-prev,.lightbox-next{top:auto;bottom:16px;transform:none}}
 body.lightbox-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.lightbox-backdrop,.lightbox-figure,.lightbox button{transition:none}}
+/* ---- fixes: section rule on narrow screens, hidden overlay really hidden, touch/focus colours ---- */
+.sec-head h2{min-width:0}
+.sec-head .rule{min-width:40px}
+.lightbox[hidden]{display:none}
+html{-webkit-tap-highlight-color:rgba(192,138,45,.28)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(hover:none){.plate-c:hover,.poster:hover{transform:none}}
+/* ---- mobile navigation: slides open and closed, same translucent background as the header ---- */
+@media(max-width:1160px){
+  nav.links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:14px;background:rgba(237,233,220,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:0 var(--inline);max-height:0;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(-6px);transition:max-height .4s ease,opacity .3s ease,transform .35s ease,padding .4s ease,visibility 0s linear .4s}
+  nav.links.open{max-height:520px;opacity:1;visibility:visible;transform:none;padding:20px var(--inline) 22px;transition:max-height .4s ease,opacity .3s ease,transform .35s ease,padding .4s ease,visibility 0s}
+}
+@media(prefers-reduced-motion:reduce){nav.links{transition:none}}

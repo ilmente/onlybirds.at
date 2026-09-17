@@ -85,11 +85,10 @@
   }
 
   function close() {
-    if (box.hidden) {
-      return;
-    }
+    // always unlock the page, even if called twice or mid-transition
     box.classList.remove('is-open');
     document.body.classList.remove('lightbox-open');
+    clearTimeout(hideTimer);
     hideTimer = setTimeout(function () {
       box.hidden = true;
       img.removeAttribute('src');
