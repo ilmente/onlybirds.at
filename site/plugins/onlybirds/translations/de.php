@@ -19,4 +19,7 @@ return [
     'theme.tours.heading'          => 'Geführte Touren',
     'theme.tours.pdf'              => 'Programm (PDF)',
     'theme.gallery.plate'          => 'Pl.',
+    'theme.gallery.close'          => 'Schließen',
+    'theme.gallery.prev'           => 'Vorheriges Bild',
+    'theme.gallery.next'           => 'Nächstes Bild',
 ];
