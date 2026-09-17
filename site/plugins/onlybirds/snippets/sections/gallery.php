@@ -24,7 +24,4 @@ $plates = $page->plates();
     </figure>
     <?php endforeach ?>
   </div>
-  <?php if ($page->gallery_note()->isNotEmpty()): ?>
-  <p class="gallery-note"><?= $page->gallery_note()->esc() ?></p>
-  <?php endif ?>
 </section>

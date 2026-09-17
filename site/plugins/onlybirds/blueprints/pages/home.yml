@@ -161,10 +161,6 @@ tabs:
           gallery_heading:
             label: Section heading
             type: text
-          gallery_note:
-            label: Note under the grid
-            type: text
-            help: Optional small mono line below the plates.
 
   contact:
     label: Contact
