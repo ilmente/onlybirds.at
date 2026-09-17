@@ -129,6 +129,8 @@ tabs:
               - link
               - email
               - clear
+            toolbar:
+              inline: false
             help: Full text with subheadings, lists, quotes and links.
       sidebar:
         width: 1/3
