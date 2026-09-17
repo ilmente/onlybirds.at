@@ -64,6 +64,6 @@ Icon
 # ---------------------------------
 /.claude
 
-# Machine-specific secrets (content.salt, cookie.key)
+# Production config: exists only on the server, never tracked
 # ---------------------------------
-/site/config/env.php
+/site/config/config.onlybirds.at.php
