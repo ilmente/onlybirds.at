@@ -7,10 +7,20 @@
     return;
   }
 
+  var openedAtScroll = 0;
+
   function setOpen(open) {
     links.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    openedAtScroll = window.scrollY;
   }
+
+  // the panel travels with the sticky header; close it once the visitor scrolls away
+  window.addEventListener('scroll', function () {
+    if (links.classList.contains('open') && Math.abs(window.scrollY - openedAtScroll) > 60) {
+      setOpen(false);
+    }
+  }, { passive: true });
 
   toggle.addEventListener('click', function () {
     setOpen(!links.classList.contains('open'));
