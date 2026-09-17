@@ -1,0 +1,17 @@
+title: Error page
+icon: alert
+
+options:
+  changeSlug: false
+  changeStatus: false
+  changeTemplate: false
+  delete: false
+  duplicate: false
+  move: false
+
+fields:
+  text:
+    label: Message
+    type: textarea
+    buttons: false
+    size: small

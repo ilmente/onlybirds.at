@@ -1,0 +1,14 @@
+# Single-image picker, reused via `extends: fields/image`
+type: files
+label: Image
+multiple: false
+max: 1
+layout: cards
+size: small
+image:
+  cover: true
+query: page.files.filterBy("template", "image")
+uploads:
+  template: image
+translate: false
+empty: No image selected

@@ -1,0 +1,96 @@
+title: Tour
+icon: pin
+num: default
+
+status:
+  draft:
+    label: Draft
+    text: Not shown on the site.
+  listed:
+    label: Published
+    text: Shown in the excursions section.
+
+options:
+  changeTemplate: false
+
+columns:
+  main:
+    width: 2/3
+    fields:
+      tag:
+        label: Tag
+        type: text
+        help: Small gold line on the tour card, e.g. "Migration · spring–autumn".
+      kicker:
+        label: Kicker
+        type: text
+        help: Small gold line above the title when this tour is featured.
+      date_from:
+        label: Start date
+        type: date
+        display: DD.MM.YYYY
+        width: 1/2
+        translate: false
+        help: Optional. Also decides which tour is featured when none is picked.
+      date_to:
+        label: End date
+        type: date
+        display: DD.MM.YYYY
+        width: 1/2
+        translate: false
+      text:
+        label: Description
+        type: textarea
+        buttons: false
+        size: medium
+      highlights:
+        label: Highlights
+        type: structure
+        max: 6
+        help: Shown as a numbered list when this tour is featured.
+        fields:
+          text:
+            label: Highlight
+            type: text
+      link:
+        label: Website
+        type: url
+        translate: false
+        help: Optional external page with more details, opened in a new tab.
+      partner_name:
+        label: Partner name
+        type: text
+        width: 1/2
+        translate: false
+        help: Shown as "In cooperation with …" on the featured card. Leave empty to hide.
+      partner_url:
+        label: Partner website
+        type: url
+        width: 1/2
+        translate: false
+      icon:
+        label: Icon
+        type: select
+        translate: false
+        default: glider
+        help: Decorative bird silhouette on the tour card.
+        options:
+          glider: Soaring bird
+          eagle: Eagle
+          kingfisher: Kingfisher
+          heron: Heron
+          bluethroat: Bluethroat
+          shrike: Shrike
+          flycatcher: Flycatcher
+          wagtail: Wagtail
+  sidebar:
+    width: 1/3
+    fields:
+      poster_image:
+        extends: fields/image
+        label: Image
+        help: Poster of the tour (about 3:4). Large on the featured card, as a small thumbnail on the tour card. Click the image to edit its alternative text.
+      poster_pdf:
+        extends: fields/document
+        label: PDF
+        help: The image, the "Open poster" button and the card link open this PDF in a new tab. Hidden while empty.

@@ -1,0 +1,20 @@
+title: Gallery plate
+
+accept:
+  mime: image/jpeg, image/png, image/webp, image/svg+xml
+
+image:
+  cover: true
+  ratio: 3/4
+
+fields:
+  bird:
+    label: Bird name
+    type: text
+    required: true
+    help: Common name, shown on the plate and used as the image description.
+  latin:
+    label: Scientific name
+    type: text
+    translate: false
+    help: Shown in italics under the bird name.

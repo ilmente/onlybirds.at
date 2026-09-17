@@ -1,0 +1,11 @@
+# Single-PDF picker, reused via `extends: fields/document`
+type: files
+label: PDF
+multiple: false
+max: 1
+layout: list
+query: page.files.filterBy("template", "document")
+uploads:
+  template: document
+translate: false
+empty: No PDF selected

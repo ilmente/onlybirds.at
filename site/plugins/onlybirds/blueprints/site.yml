@@ -1,0 +1,54 @@
+title: Site
+icon: home
+
+columns:
+  main:
+    width: 2/3
+    sections:
+      brand:
+        type: fields
+        fields:
+          brand_info:
+            type: info
+            label: Brand name
+            text: The brand name shown in the header is the site title. Change it with the title button at the top of this page (per language).
+            theme: none
+          tagline:
+            label: Brand tagline
+            type: text
+            help: Small caps line under the brand name in the header.
+          footer_line:
+            type: line
+          footer_copyright:
+            label: Footer copyright
+            type: text
+            translate: false
+            help: "Use {{ year }} to insert the current year automatically."
+          footer_tagline:
+            label: Footer tagline
+            type: text
+          seo_line:
+            type: line
+          meta_description:
+            label: Default meta description
+            type: textarea
+            buttons: false
+            size: small
+            maxlength: 160
+            help: Used when a page has no meta description of its own.
+          share_image:
+            extends: fields/image
+            label: Share image
+            query: site.files.filterBy("template", "image")
+            help: Shown when a link to the site is shared on social networks (1200×630 px recommended).
+
+  sidebar:
+    width: 1/3
+    sections:
+      pages:
+        type: pages
+        label: Pages
+        templates:
+          - home
+        create: false
+        info: "{{ page.template }}"
