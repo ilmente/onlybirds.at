@@ -241,20 +241,23 @@ header.nav,section,footer,.hero .wrap,nav.links.open{padding-inline:var(--inline
 .about .body p,.about .body ul,.about .body ol,.about .body blockquote{max-width:70ch}
 /* ---- gallery lightbox ---- */
 .plate-c .art{text-decoration:none;color:inherit}
-.lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);opacity:0;transition:opacity .35s ease;pointer-events:none}
-.lightbox.is-open{opacity:1;pointer-events:auto}
-.lightbox-backdrop{position:absolute;inset:0;background:rgba(237,233,220,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.lightbox-figure{position:relative;z-index:1;max-width:min(92vw,1100px);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:16px;transform:scale(.96);transition:transform .35s ease}
-.lightbox.is-open .lightbox-figure{transform:none}
+.lightbox{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);pointer-events:none}
+.lightbox.is-open{pointer-events:auto}
+/* tint and blur animate from zero themselves: an opacity fade on the parent makes the blur snap in */
+.lightbox-backdrop{position:absolute;inset:0;background:rgba(228,223,206,0);backdrop-filter:blur(0);-webkit-backdrop-filter:blur(0);transition:background-color .45s ease,backdrop-filter .45s ease,-webkit-backdrop-filter .45s ease}
+.lightbox.is-open .lightbox-backdrop{background:rgba(228,223,206,.86);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.lightbox-figure{position:relative;z-index:1;max-width:min(92vw,1100px);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;transform:scale(.96);transition:opacity .4s ease,transform .4s ease}
+.lightbox.is-open .lightbox-figure{opacity:1;transform:none}
 .lightbox-figure img{max-width:100%;max-height:calc(100vh - 180px);width:auto;height:auto;border-radius:var(--radius);box-shadow:0 30px 70px rgba(30,58,50,.35);background:var(--paper);cursor:pointer}
 .lightbox-figure figcaption{text-align:center}
 .lightbox-figure .cn{display:block;font-family:var(--display);font-weight:500;font-size:22px;line-height:1.2}
 .lightbox-figure .ln{display:block;font-family:var(--display);font-style:italic;font-size:15px;color:var(--ink-soft);margin-top:4px}
-.lightbox button{position:absolute;z-index:2;width:40px;height:40px;display:grid;place-items:center;background:rgba(237,233,220,.6);border:1px solid var(--line);border-radius:var(--radius);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;transition:background .2s,color .2s}
+.lightbox button{position:absolute;z-index:2;width:40px;height:40px;display:grid;place-items:center;background:rgba(228,223,206,.7);border:1px solid var(--line);border-radius:var(--radius);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;opacity:0;transition:opacity .4s ease,background .2s,color .2s}
+.lightbox.is-open button{opacity:1}
 .lightbox button:hover{background:var(--ink);color:var(--paper)}
 .lightbox-close{top:18px;right:18px}
 .lightbox-prev{left:14px;top:50%;transform:translateY(-50%)}
 .lightbox-next{right:14px;top:50%;transform:translateY(-50%)}
 @media(max-width:600px){.lightbox-prev,.lightbox-next{top:auto;bottom:16px;transform:none}}
 body.lightbox-open{overflow:hidden}
-@media(prefers-reduced-motion:reduce){.lightbox,.lightbox-figure{transition:none}}
+@media(prefers-reduced-motion:reduce){.lightbox-backdrop,.lightbox-figure,.lightbox button{transition:none}}
