@@ -6,7 +6,7 @@
  *   <?php snippet('layout', slots: true) ?> … <?php endsnippet() ?>
  */
 
-$theme    = $kirby->plugin('herd/onlybirds');
+$theme    = $kirby->plugin('ilmente/onlybirds');
 $language = $kirby->language();
 
 $metaTitle = $page->meta_title()->isNotEmpty()

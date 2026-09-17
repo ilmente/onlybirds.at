@@ -21,7 +21,7 @@ CSS and JS. Deploying the theme means deploying this folder.
 | `models/TourPage.php` | Resolves a tour's image, PDF, highlights and formatted dates |
 | `translations/*.php` | Fixed UI strings per language (nav labels, button labels, aria labels) |
 | `config/birds.php` | Bird silhouette paths used by the tour-card icon select |
-| `assets/` | `css/site.css`, `js/site.js`; served by Kirby at `/media/plugins/herd/onlybirds/…` |
+| `assets/` | `css/site.css`, `js/site.js`; served by Kirby at `/media/plugins/ilmente/onlybirds/…` |
 
 Outside the theme, deliberately small:
 

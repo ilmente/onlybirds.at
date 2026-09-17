@@ -1,0 +1,15 @@
+{
+  "name": "ilmente/onlybirds",
+  "description": "Theme for onlybirds.at – birdwatching excursions and guided tours with Pietro Bellezza",
+  "type": "kirby-plugin",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "homepage": "https://onlybirds.at",
+  "authors": [
+    {
+      "name": "Alessandro Bellini",
+      "email": "alessandro@ilmente.it",
+      "homepage": "https://ilmente.it"
+    }
+  ]
+}

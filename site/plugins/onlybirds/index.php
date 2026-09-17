@@ -5,7 +5,7 @@
  *
  * Everything the front end and the Panel need lives in this folder:
  * blueprints, templates, snippets, page models, UI translations and assets
- * (assets/ is served automatically by Kirby under /media/plugins/herd/onlybirds/).
+ * (assets/ is served automatically by Kirby under /media/plugins/ilmente/onlybirds/).
  *
  * Site-specific configuration stays outside the theme on purpose:
  *   site/config/config.php   – languages, caching, debug
@@ -49,7 +49,7 @@ foreach (glob(__DIR__ . '/translations/*.php') as $file) {
 // use the German strings there so t() never returns null in a new language.
 $translations['en'] ??= $translations['de'];
 
-Kirby::plugin('herd/onlybirds', [
+Kirby::plugin('ilmente/onlybirds', [
     'blueprints'   => $collect(__DIR__ . '/blueprints', 'yml'),
     'templates'    => $collect(__DIR__ . '/templates', 'php'),
     'snippets'     => $collect(__DIR__ . '/snippets', 'php'),
