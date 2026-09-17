@@ -19,6 +19,12 @@ return [
         'vue' => [
             'compiler' => false,
         ],
+        // the Panel tab shows the site's own icons; the theme serves them at the site root
+        'favicon' => [
+            ['rel' => 'apple-touch-icon', 'type' => 'image/png',     'href' => 'apple-touch-icon.png'],
+            ['rel' => 'alternate icon',   'type' => 'image/x-icon',  'href' => 'favicon.ico'],
+            ['rel' => 'shortcut icon',    'type' => 'image/svg+xml', 'href' => 'favicon.svg'],
+        ],
     ],
 
     'debug' => false,

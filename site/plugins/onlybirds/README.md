@@ -16,12 +16,13 @@ CSS and JS. Deploying the theme means deploying this folder.
 | `snippets/layout.php` | `<head>`, header, `<main>` slot, footer, scripts. Templates wrap their content in it with `snippet('layout', slots: true) … endsnippet()` |
 | `snippets/sections/*.php` | One snippet per section; rendered in the order `HomePage::visibleSections()` returns |
 | `snippets/image.php` | The only `<img>` markup: thumbs + `srcset`, SVGs pass through |
-| `snippets/svg/*.php` | Logo, hero sky, bird silhouettes |
+| `snippets/svg/*.php` | Brand mark (from the logo kit), hero sky, bird silhouettes |
 | `models/HomePage.php` | Owns the section list that drives nav + numbering; picks the featured tour and the tour cards |
 | `models/TourPage.php` | Resolves a tour's image, PDF, highlights and formatted dates |
 | `translations/*.php` | Fixed UI strings per language (nav labels, button labels, aria labels) |
 | `config/birds.php` | Bird silhouette paths used by the tour-card icon select |
-| `assets/` | `css/site.css`, `js/site.js`; served by Kirby at `/media/plugins/ilmente/onlybirds/…` |
+| `config/routes.php` | Root URLs for the icon files (`/favicon.ico`, `/apple-touch-icon.png`, …) and the web app manifest |
+| `assets/` | `css/site.css`, `js/site.js`, `icons/` (favicon, home screen icons, share image); served by Kirby at `/media/plugins/ilmente/onlybirds/…` |
 
 Outside the theme, deliberately small:
 
@@ -72,6 +73,22 @@ Tour pages are never rendered on their own: `/home/<slug>` redirects to the excu
 - No PDF on a tour → its image is not linked and the "Open poster" button / "PDF" card link are hidden.
 
 Section numbers (01, 02, 03) are computed from the visible sections, so they never skip.
+
+## Brand and icons
+
+The header shows the brand mark (`snippets/svg/logo.php`, the "sunrise glider" from the logo kit)
+next to the site title and tagline as live text, so the name can change in the Panel without
+touching the logo.
+
+`assets/icons/` holds the favicon (`favicon.ico` with 16/32/48 px and `favicon.svg`), the iOS home
+screen icon (`apple-touch-icon.png`, 180 px), the Android icons (`icon-192.png`, `icon-512.png`, plus
+full-bleed `-maskable` variants for adaptive icon shapes) and the default share image
+(`share-image.png`, 1200×630). The theme serves the icons at the site root (`/favicon.ico`,
+`/apple-touch-icon.png`, …) and a web app manifest per language (`/site.webmanifest`,
+`/it/site.webmanifest`) via `config/routes.php`, so "Add to Home Screen" on iOS and Android gets
+the right icon and name. The share image is the Open Graph fallback: an image uploaded under
+"Share image" on the Site in the Panel takes precedence. The Panel uses the same icons
+(`panel.favicon` in `site/config/config.php`).
 
 ## Deploying
 

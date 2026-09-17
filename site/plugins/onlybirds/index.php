@@ -4,8 +4,9 @@
  * onlybirds theme
  *
  * Everything the front end and the Panel need lives in this folder:
- * blueprints, templates, snippets, page models, UI translations and assets
- * (assets/ is served automatically by Kirby under /media/plugins/ilmente/onlybirds/).
+ * blueprints, templates, snippets, page models, UI translations, routes and assets
+ * (assets/ is served automatically by Kirby under /media/plugins/ilmente/onlybirds/;
+ * the icons in assets/icons/ are additionally served at the site root, see config/routes.php).
  *
  * Site-specific configuration stays outside the theme on purpose:
  *   site/config/config.php   – languages, caching, debug
@@ -62,6 +63,8 @@ Kirby::plugin('ilmente/onlybirds', [
         // bird silhouettes used by tour cards; single source of truth for the SVG paths
         'birds' => require __DIR__ . '/config/birds.php',
     ],
+    // /favicon.ico, /apple-touch-icon.png, /icon-*.png and /site.webmanifest, from assets/icons/
+    'routes'       => require __DIR__ . '/config/routes.php',
     'hooks' => [
         /**
          * Keeps the pages cache in sync with deployments: Kirby flushes it on content
