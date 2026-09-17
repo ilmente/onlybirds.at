@@ -34,10 +34,10 @@ $cards    = $page->tourCards();
       <div class="when"><?= $dates ?></div>
       <?php endif ?>
       <?php if ($featured->text()->isNotEmpty()): ?>
-      <p><?= $featured->text()->kti() ?></p>
+      <div class="text"><?= $featured->text() ?></div>
       <?php endif ?>
       <?php if ($featured->highlights()->isNotEmpty()): ?>
-      <ul>
+      <ul class="highlights">
         <?php foreach ($featured->highlights() as $i => $highlight): ?>
         <li><span class="ic"><?= str_pad((string)($i + 1), 2, '0', STR_PAD_LEFT) ?></span><span><?= $highlight->text()->esc() ?></span></li>
         <?php endforeach ?>
@@ -87,7 +87,7 @@ $cards    = $page->tourCards();
         </div>
       </div>
       <?php if ($tour->text()->isNotEmpty()): ?>
-      <p><?= $tour->text()->kti() ?></p>
+      <div class="text"><?= $tour->text() ?></div>
       <?php endif ?>
       <?php if ($pdf || $tour->link()->isNotEmpty()): ?>
       <div class="links">

@@ -11,7 +11,7 @@ $secondary = $page->hero_cta_secondary();
     <?php endif ?>
     <h1><?= $page->hero_title() ?></h1>
     <?php if ($page->hero_intro()->isNotEmpty()): ?>
-    <p class="lede"><?= $page->hero_intro()->kti() ?></p>
+    <div class="lede"><?= $page->hero_intro() ?></div>
     <?php endif ?>
     <?php if ($primary?->isNotEmpty() || $secondary->isNotEmpty()): ?>
     <div class="cta">

@@ -39,10 +39,9 @@ columns:
         width: 1/2
         translate: false
       text:
+        extends: fields/richtext
         label: Description
-        type: textarea
-        buttons: false
-        size: medium
+        help: Shown in full on the featured card and on the tour card.
       highlights:
         label: Highlights
         type: structure

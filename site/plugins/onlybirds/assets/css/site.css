@@ -33,7 +33,7 @@ nav.links a:hover::after{width:100%}
 .eyebrow::before{content:"";width:34px;height:1px;background:var(--jay)}
 .hero h1{font-family:var(--display);font-weight:500;font-size:clamp(46px,8.4vw,116px);line-height:.94;letter-spacing:-1px;max-width:13ch}
 .hero h1 em{font-style:italic;color:var(--gold)}
-.hero p.lede{margin-top:24px;font-size:clamp(17px,2vw,21px);max-width:46ch;color:var(--ink-soft)}
+.hero .lede{margin-top:24px;font-size:clamp(17px,2vw,21px);max-width:46ch;color:var(--ink-soft)}
 .hero .cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
 .btn{font-family:var(--body);font-weight:600;font-size:15px;letter-spacing:.3px;text-decoration:none;padding:13px 24px;border-radius:2px;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:9px;border:1px solid var(--ink)}
 .btn.solid{background:var(--ink);color:var(--paper)}
@@ -73,9 +73,9 @@ section{padding:clamp(64px,11vh,120px) clamp(20px,5vw,64px);position:relative}
 .feature .info .kicker{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .feature .info h3{font-family:var(--display);font-weight:500;font-size:clamp(26px,3.4vw,40px);line-height:1.05;letter-spacing:-.5px;margin-bottom:18px}
 .feature .info p{font-size:18px;color:rgba(237,233,220,.85);margin-bottom:22px;max-width:52ch}
-.feature .info ul{list-style:none;margin-bottom:28px;display:grid;gap:2px}
-.feature .info li{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(237,233,220,.14);font-size:15px}
-.feature .info li .ic{color:var(--gold);font-family:var(--mono);font-size:13px;flex:none;width:20px}
+.feature .info .highlights{list-style:none;margin-bottom:28px;display:grid;gap:2px}
+.feature .info .highlights li{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(237,233,220,.14);font-size:15px}
+.feature .info .highlights .ic{color:var(--gold);font-family:var(--mono);font-size:13px;flex:none;width:20px}
 .btn.gold{border-color:var(--gold);background:var(--gold);color:var(--ink)}
 .btn.gold:hover{background:transparent;color:var(--paper)}
 
@@ -179,3 +179,18 @@ section{scroll-margin-top:84px}
 .about .body a{color:var(--jay);text-decoration:underline;text-underline-offset:3px}
 .about .body strong{font-weight:600}
 .about .body u{text-decoration-thickness:1px;text-underline-offset:3px}
+/* rich text in hero intro, featured description and tour cards */
+.hero .lede p+p{margin-top:12px}
+.feature .info .text ul,.feature .info .text ol{margin:0 0 22px 22px;font-size:17px;color:rgba(237,233,220,.85);max-width:52ch}
+.feature .info .text li{margin-bottom:6px}
+.feature .info .text h3,.feature .info .text h4{font-family:var(--display);font-weight:500;line-height:1.15;margin:0 0 10px}
+.feature .info .text h3{font-size:24px}
+.feature .info .text h4{font-size:19px}
+.feature .info .text blockquote{margin:0 0 22px;padding-left:16px;border-left:2px solid var(--gold);font-family:var(--display);font-style:italic}
+.feature .info .text hr{border:0;border-top:1px solid rgba(237,233,220,.2);margin:18px 0}
+.feature .info .text a{color:var(--gold)}
+.poster .text p{margin-bottom:10px}
+.poster .text ul,.poster .text ol{margin:0 0 12px 18px;font-size:14px;color:rgba(237,233,220,.82)}
+.poster .text h3,.poster .text h4{font-family:var(--display);font-weight:500;font-size:17px;margin:10px 0 4px}
+.poster .text blockquote{margin:0 0 12px;padding-left:12px;border-left:2px solid var(--gold);font-style:italic;font-size:14px}
+.poster .text a{color:var(--gold)}

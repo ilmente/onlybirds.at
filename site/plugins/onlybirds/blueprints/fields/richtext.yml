@@ -1,0 +1,22 @@
+# Rich text editor with a pinned toolbar, reused via `extends: fields/richtext`
+type: writer
+size: medium
+headings:
+  - 3
+  - 4
+nodes:
+  - heading
+  - bulletList
+  - orderedList
+  - quote
+  - horizontalRule
+marks:
+  - bold
+  - italic
+  - underline
+  - strike
+  - link
+  - email
+  - clear
+toolbar:
+  inline: false

@@ -27,9 +27,8 @@ tabs:
           - italic
         help: Italic text is shown in gold. Shift+Enter inserts a line break.
       hero_intro:
+        extends: fields/richtext
         label: Intro
-        type: textarea
-        buttons: false
         size: small
       hero_cta_primary:
         label: Primary button
@@ -109,28 +108,9 @@ tabs:
             type: text
             help: Large serif sentence at the top of the section.
           about_text:
+            extends: fields/richtext
             label: Text
-            type: writer
             size: huge
-            headings:
-              - 3
-              - 4
-            nodes:
-              - heading
-              - bulletList
-              - orderedList
-              - quote
-              - horizontalRule
-            marks:
-              - bold
-              - italic
-              - underline
-              - strike
-              - link
-              - email
-              - clear
-            toolbar:
-              inline: false
             help: Full text with subheadings, lists, quotes and links.
       sidebar:
         width: 1/3
