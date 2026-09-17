@@ -11,10 +11,11 @@ a{color:inherit}
 ::selection{background:var(--gold);color:var(--paper)}
 
 header.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,64px);background:rgba(237,233,220,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand svg{width:30px;height:30px;flex:none}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:34px;height:34px;flex:none}
 .brand .nm{font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:.2px;line-height:1}
-.brand .sub{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-top:3px}
+.brand>span{display:flex;align-items:baseline;gap:10px;min-width:0}
+.brand .sub{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft)}
 nav.links{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px)}
 nav.links a{text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.3px;color:var(--ink-soft);position:relative;padding:4px 0;transition:color .2s}
 nav.links a:hover{color:var(--ink)}
@@ -23,7 +24,7 @@ nav.links a:hover::after{width:100%}
 .lang{display:flex;border:1px solid var(--line-strong);border-radius:2px;overflow:hidden;font-family:var(--mono);font-size:12px}
 .lang a{background:none;border:none;padding:5px 9px;cursor:pointer;color:var(--ink-soft);letter-spacing:1px;text-decoration:none}
 .lang a.on{background:var(--ink);color:var(--paper)}
-.menu-btn{display:none;background:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px 8px;cursor:pointer}
+.menu-btn{display:none;background:none;border:1px solid var(--line-strong);border-radius:2px;padding:6px;width:34px;height:34px;cursor:pointer}
 .menu-btn svg{width:20px;height:20px;display:block}
 
 .hero{position:relative;min-height:80vh;display:flex;align-items:flex-end;overflow:hidden}
@@ -166,7 +167,6 @@ footer{padding:26px clamp(20px,5vw,64px);border-top:1px solid var(--line);displa
 }
 /* anchor jumps land below the sticky header */
 section{scroll-margin-top:84px}
-@media(max-width:900px){section{scroll-margin-top:124px}}
 /* about: rich text from the writer field */
 .about .body h3,.about .body h4{font-family:var(--display);font-weight:500;line-height:1.15;letter-spacing:-.3px;margin:28px 0 12px}
 .about .body h3{font-size:clamp(22px,2.6vw,28px)}
@@ -204,17 +204,6 @@ section{scroll-margin-top:84px}
 .nav .links{margin-left:auto}
 .lang,.menu-btn{border-color:var(--line)}
 .menu-btn{margin-left:12px}
-@media(max-width:900px){
-  .nav .links.open .lang{margin-top:6px}
-  section{scroll-margin-top:96px}
-}
-/* compact phone header: logo + name on one line, tagline underneath across the full width */
-@media(max-width:600px){
-  .brand{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:2px;align-items:center;min-width:0}
-  .brand>span{display:contents}
-  .brand .sub{grid-column:1/-1;margin-top:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  section{scroll-margin-top:84px}
-}
 /* ---- buttons: smaller everywhere, side by side on phones ---- */
 .btn{padding:11px 20px;font-size:14px}
 @media(max-width:900px){
@@ -229,5 +218,19 @@ section{scroll-margin-top:84px}
 .nav .links .lang a.on{color:var(--paper)}
 /* hero height = viewport minus the sticky header, so the buttons are never cut off */
 :root{--nav-h:62px}
-@media(max-width:600px){:root{--nav-h:78px}}
+@media(max-width:600px){:root{--nav-h:66px}}
 @media(max-width:900px){.hero{min-height:calc(100vh - var(--nav-h));min-height:calc(100svh - var(--nav-h))}}
+/* navigation collapses into the menu early (≤1160px) so links and brand never collide */
+@media(max-width:1160px){
+  nav.links{display:none}
+  nav.links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;gap:14px;background:var(--paper);padding:20px clamp(20px,5vw,64px);border-bottom:1px solid var(--line)}
+  .nav .links.open .lang{margin-top:6px}
+  .menu-btn{display:block}
+}
+/* phone header: one row – logo, title with tagline tucked underneath, menu button */
+@media(max-width:600px){
+  .brand{min-width:0}
+  .brand>span{flex-direction:column;align-items:flex-start;gap:4px}
+  .brand .nm{font-size:18px}
+  .brand .sub{display:block;max-width:100%;font-size:9px;letter-spacing:1.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+}
