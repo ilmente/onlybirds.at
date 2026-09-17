@@ -81,6 +81,8 @@ Ship the code, keep the content on the server:
 - Never overwrite: `content/`, `media/`, `site/accounts/`, `site/sessions/`, `site/cache/`, `site/config/.license`.
 - First deployment also uploads the seed `content/` once.
 - Production needs a Kirby license (installed from the Panel) and PHP 8.2+.
+- Kirby's pages cache (if enabled in the host config) is flushed automatically by the theme
+  whenever a deployment changes a theme file; content changes flush it via Kirby itself.
 
 With git: track the code paths above, ignore `/content/*`, and let a webhook run `git pull` on the server.
 On an FTP-only host, sync the `site/plugins/onlybirds/` folder (plus `kirby/` on Kirby updates).

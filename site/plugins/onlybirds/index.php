@@ -62,4 +62,26 @@ Kirby::plugin('ilmente/onlybirds', [
         // bird silhouettes used by tour cards; single source of truth for the SVG paths
         'birds' => require __DIR__ . '/config/birds.php',
     ],
+    'hooks' => [
+        /**
+         * Keeps the pages cache in sync with deployments: Kirby flushes it on content
+         * changes, but not when theme files change. The newest modification time of this
+         * folder is stored in the cache itself; when a pull changes any theme file, the
+         * next request flushes the cache once and stores the new stamp.
+         */
+        'route:before' => function () {
+            $cache = $this->cache('pages');
+
+            if (($cache->options()['active'] ?? false) !== true) {
+                return;
+            }
+
+            $stamp = (string)Dir::modified(__DIR__);
+
+            if ($cache->get('ilmente-onlybirds-stamp') !== $stamp) {
+                $cache->flush();
+                $cache->set('ilmente-onlybirds-stamp', $stamp);
+            }
+        },
+    ],
 ]);
