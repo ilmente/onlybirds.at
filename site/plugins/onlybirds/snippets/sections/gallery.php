@@ -5,7 +5,6 @@
  * @var array $section
  */
 $plates = $page->plates();
-$n      = 0;
 ?>
 <section id="<?= $section['anchor'] ?>" class="gallery">
   <?php snippet('section-head', ['number' => $section['number'], 'title' => $page->gallery_heading()->esc()]) ?>
@@ -13,14 +12,13 @@ $n      = 0;
     <?php foreach ($plates as $plate): ?>
     <?php $full = $plate->isResizable() ? $plate->resize(1600)->url() : $plate->url() ?>
     <figure class="plate-c">
-      <span class="no"><?= esc(t('theme.gallery.plate')) ?> <?= str_pad((string)(++$n), 2, '0', STR_PAD_LEFT) ?></span>
       <a class="art" href="<?= $full ?>" data-lightbox data-title="<?= $plate->bird()->esc() ?>" data-subtitle="<?= $plate->latin()->esc() ?>">
         <?php snippet('image', ['file' => $plate, 'width' => 600, 'ratio' => 3 / 4, 'sizes' => '(max-width: 900px) 50vw, 25vw', 'alt' => $plate->bird()->or($plate->alt())->value()]) ?>
       </a>
       <figcaption class="cap">
-        <div class="cn"><?= $plate->bird()->esc() ?></div>
+        <span class="cn"><?= $plate->bird()->esc() ?></span>
         <?php if ($plate->latin()->isNotEmpty()): ?>
-        <div class="ln"><?= $plate->latin()->esc() ?></div>
+        <span class="ln"><?= $plate->latin()->esc() ?></span>
         <?php endif ?>
       </figcaption>
     </figure>

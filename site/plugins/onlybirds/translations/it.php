@@ -17,7 +17,6 @@ return [
     'theme.excursion.partner'      => 'In collaborazione con',
     'theme.tours.heading'          => 'Tour guidati',
     'theme.tours.pdf'              => 'Programma (PDF)',
-    'theme.gallery.plate'          => 'Tav.',
     'theme.gallery.close'          => 'Chiudi',
     'theme.gallery.prev'           => 'Immagine precedente',
     'theme.gallery.next'           => 'Immagine successiva',

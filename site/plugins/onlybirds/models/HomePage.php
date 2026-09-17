@@ -94,10 +94,11 @@ class HomePage extends Page
     }
 
     /**
-     * Gallery plates in the order set by dragging in the Panel.
+     * Gallery plates in the order set by dragging in the Panel, at most eight
+     * (the same limit as the Plates section in the blueprint).
      */
     public function plates(): Files
     {
-        return $this->files()->template('plate')->sorted();
+        return $this->files()->template('plate')->sorted()->limit(8);
     }
 }
