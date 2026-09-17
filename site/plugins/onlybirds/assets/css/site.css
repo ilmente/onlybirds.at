@@ -200,3 +200,34 @@ section{scroll-margin-top:84px}
 .hero .flock{position:absolute;left:17.5%;top:13.5%;width:clamp(200px,30vw,430px);height:auto}
 .hero .hills{position:absolute;left:0;bottom:0;width:100%;height:clamp(180px,34%,320px)}
 @media(max-width:900px){.hero .sun{top:17%}}
+/* ---- header: language switch inside the navigation, subtler borders ---- */
+.nav .links{margin-left:auto}
+.lang,.menu-btn{border-color:var(--line)}
+.menu-btn{margin-left:12px}
+@media(max-width:900px){
+  .nav .links.open .lang{margin-top:6px}
+  section{scroll-margin-top:96px}
+}
+/* compact phone header: logo + name on one line, tagline underneath across the full width */
+@media(max-width:600px){
+  .brand{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:2px;align-items:center;min-width:0}
+  .brand>span{display:contents}
+  .brand .sub{grid-column:1/-1;margin-top:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  section{scroll-margin-top:84px}
+}
+/* ---- buttons: smaller everywhere, side by side on phones ---- */
+.btn{padding:11px 20px;font-size:14px}
+@media(max-width:900px){
+  .btn{padding:10px 16px;font-size:13.5px}
+  .hero .cta{gap:10px}
+  /* full-height hero with the text at the bottom keeps sun and birds clear of the copy */
+  .hero{min-height:100vh;min-height:100svh}
+}
+/* language switch inside the navigation keeps its own look (nav link styles must not apply) */
+.nav .links .lang a{padding:5px 9px;font-size:12px;letter-spacing:1px;font-weight:400}
+.nav .links .lang a::after{content:none}
+.nav .links .lang a.on{color:var(--paper)}
+/* hero height = viewport minus the sticky header, so the buttons are never cut off */
+:root{--nav-h:62px}
+@media(max-width:600px){:root{--nav-h:78px}}
+@media(max-width:900px){.hero{min-height:calc(100vh - var(--nav-h));min-height:calc(100svh - var(--nav-h))}}
