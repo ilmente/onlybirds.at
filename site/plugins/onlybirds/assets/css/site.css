@@ -167,3 +167,15 @@ footer{padding:26px clamp(20px,5vw,64px);border-top:1px solid var(--line);displa
 /* anchor jumps land below the sticky header */
 section{scroll-margin-top:84px}
 @media(max-width:900px){section{scroll-margin-top:124px}}
+/* about: rich text from the writer field */
+.about .body h3,.about .body h4{font-family:var(--display);font-weight:500;line-height:1.15;letter-spacing:-.3px;margin:28px 0 12px}
+.about .body h3{font-size:clamp(22px,2.6vw,28px)}
+.about .body h4{font-size:19px}
+.about .body ul,.about .body ol{margin:0 0 18px 22px;font-size:18px}
+.about .body li{margin-bottom:6px}
+.about .body blockquote{margin:0 0 18px;padding-left:18px;border-left:2px solid var(--gold);font-family:var(--display);font-style:italic;font-size:20px;color:var(--ink-soft)}
+.about .body blockquote p{margin-bottom:8px;font-size:inherit}
+.about .body hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+.about .body a{color:var(--jay);text-decoration:underline;text-underline-offset:3px}
+.about .body strong{font-weight:600}
+.about .body u{text-decoration-thickness:1px;text-underline-offset:3px}

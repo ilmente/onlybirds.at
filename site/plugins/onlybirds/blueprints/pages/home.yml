@@ -111,11 +111,25 @@ tabs:
           about_text:
             label: Text
             type: writer
-            nodes: false
+            size: huge
+            headings:
+              - 3
+              - 4
+            nodes:
+              - heading
+              - bulletList
+              - orderedList
+              - quote
+              - horizontalRule
             marks:
               - bold
               - italic
+              - underline
+              - strike
               - link
+              - email
+              - clear
+            help: Full text with subheadings, lists, quotes and links.
       sidebar:
         width: 1/3
         sections:
