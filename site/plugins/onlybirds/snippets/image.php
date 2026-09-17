@@ -13,7 +13,7 @@
 $width ??= 1200;
 $ratio ??= null;
 $sizes ??= '100vw';
-$alt   ??= $file->alt()->value();
+$alt   = (string)($alt ?? $file->alt()->value()); // empty alt when no text was entered
 $lazy  ??= true;
 
 if ($file->isResizable() === true) {

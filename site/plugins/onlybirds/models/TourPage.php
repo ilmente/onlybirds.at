@@ -57,8 +57,8 @@ class TourPage extends Page
      */
     public function linkHost(): string
     {
-        $url = $this->link()->value();
+        $url = (string)$this->link()->value();
 
-        return preg_replace('/^www\./', '', parse_url($url, PHP_URL_HOST) ?? $url);
+        return preg_replace('/^www\./', '', parse_url($url, PHP_URL_HOST) ?: $url);
     }
 }

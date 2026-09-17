@@ -2,7 +2,7 @@
 
 use Kirby\Toolkit\Str;
 
-$copyright = Str::template($site->footer_copyright()->value(), ['year' => date('Y')]);
+$copyright = Str::template((string)$site->footer_copyright()->value(), ['year' => date('Y')]);
 ?>
 <footer>
   <?php if ($copyright): ?>

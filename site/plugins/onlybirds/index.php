@@ -45,6 +45,10 @@ foreach (glob(__DIR__ . '/translations/*.php') as $file) {
     $translations[F::name($file)] = require $file;
 }
 
+// Kirby falls back to "en" for missing keys; until an English file exists,
+// use the German strings there so t() never returns null in a new language.
+$translations['en'] ??= $translations['de'];
+
 Kirby::plugin('herd/onlybirds', [
     'blueprints'   => $collect(__DIR__ . '/blueprints', 'yml'),
     'templates'    => $collect(__DIR__ . '/templates', 'php'),
