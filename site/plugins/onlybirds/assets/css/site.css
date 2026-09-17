@@ -234,3 +234,7 @@ section{scroll-margin-top:84px}
   .brand .nm{font-size:18px}
   .brand .sub{display:block;max-width:100%;font-size:9px;letter-spacing:1.4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 }
+/* ---- content width: backgrounds stay full-bleed, content never grows past --content-max ---- */
+:root{--content-max:1600px;--gutter:clamp(20px,5vw,64px);--inline:max(var(--gutter),calc((100% - var(--content-max)) / 2))}
+header.nav,section,footer,.hero .wrap,nav.links.open{padding-inline:var(--inline)}
+.about .body p,.about .body ul,.about .body ol,.about .body blockquote{max-width:70ch}
