@@ -21,6 +21,23 @@
       setOpen(false);
     });
   });
+
+  // close when tapping or clicking anywhere outside the menu, or pressing Escape
+  document.addEventListener('pointerdown', function (event) {
+    if (!links.classList.contains('open')) {
+      return;
+    }
+    if (links.contains(event.target) || toggle.contains(event.target)) {
+      return;
+    }
+    setOpen(false);
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      setOpen(false);
+    }
+  });
 })();
 
 /* Gallery lightbox: plates link to their full-size image; this turns the links into an
