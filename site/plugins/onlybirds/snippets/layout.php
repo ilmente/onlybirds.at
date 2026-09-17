@@ -7,7 +7,7 @@
  *
  * Icons: favicon, iOS/Android home screen icons and the web app manifest are served by the
  * theme at the site root (config/routes.php, files in assets/icons/). The share image is the
- * one uploaded on the Site in the Panel, otherwise the theme's own.
+ * one picked on the Site page in the Panel, otherwise the theme's own.
  */
 
 $theme    = $kirby->plugin('ilmente/onlybirds');
@@ -22,16 +22,23 @@ $metaTitle = $page->meta_title()->isNotEmpty()
 
 $metaDescription = $page->meta_description()->or($site->meta_description())->value();
 
-// Open Graph wants "de_AT"; taken from the language's locale, the bare code when none is set
-$locale   = $language->locale(LC_ALL);
-$ogLocale = is_string($locale) ? strtok($locale, '.') : $language->code();
+// Open Graph wants "de_AT": taken from a language's locale, the bare code when none is set
+$ogLocale = fn ($lang) => is_string($locale = $lang->locale(LC_ALL))
+    ? strtok($locale, '.')
+    : $lang->code();
 
-if ($file = $site->files()->template('image')->first()) {
-    $width = min(1200, $file->width());
+// link preview image (WhatsApp, Facebook, X, …): the image picked on the Site page in the Panel,
+// cropped to the 1200×630 every network accepts (the crop follows the image's focus point);
+// the theme's own image with the logo when none is picked
+if ($file = $site->share_image()->toFile()) {
+    $image = $file->isResizable()
+        ? $file->thumb(['width' => 1200, 'height' => 630, 'crop' => true, 'quality' => 80])
+        : $file;
     $share = [
-        'url'    => $file->resize(1200)->url(),
-        'width'  => $width,
-        'height' => (int)round($width * $file->height() / $file->width()),
+        'url'    => $image->url(),
+        'width'  => $image->width(),
+        'height' => $image->height(),
+        'type'   => $image->mime(),
         'alt'    => $file->alt()->or($site->title())->value(),
     ];
 } else {
@@ -39,6 +46,7 @@ if ($file = $site->files()->template('image')->first()) {
         'url'    => $theme->asset('icons/share-image.png')->url(),
         'width'  => 1200,
         'height' => 630,
+        'type'   => 'image/png',
         'alt'    => $site->title()->value(),
     ];
 }
@@ -64,8 +72,12 @@ if ($file = $site->files()->template('image')->first()) {
 <meta property="og:description" content="<?= esc($metaDescription) ?>">
 <?php endif ?>
 <meta property="og:url" content="<?= $page->url() ?>">
-<meta property="og:locale" content="<?= esc($ogLocale) ?>">
+<meta property="og:locale" content="<?= esc($ogLocale($language)) ?>">
+<?php foreach ($kirby->languages()->not($language->code()) as $lang): ?>
+<meta property="og:locale:alternate" content="<?= esc($ogLocale($lang)) ?>">
+<?php endforeach ?>
 <meta property="og:image" content="<?= $share['url'] ?>">
+<meta property="og:image:type" content="<?= $share['type'] ?>">
 <meta property="og:image:width" content="<?= $share['width'] ?>">
 <meta property="og:image:height" content="<?= $share['height'] ?>">
 <meta property="og:image:alt" content="<?= esc($share['alt']) ?>">

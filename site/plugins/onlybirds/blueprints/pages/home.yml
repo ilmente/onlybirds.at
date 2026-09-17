@@ -200,4 +200,4 @@ tabs:
         buttons: false
         size: small
         maxlength: 160
-        help: Falls back to the default meta description of the site.
+        help: Leave empty to use the site's meta description (Site → Metadata).

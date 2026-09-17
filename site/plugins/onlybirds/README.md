@@ -8,7 +8,7 @@ CSS and JS. Deploying the theme means deploying this folder.
 
 | Folder | Purpose |
 | --- | --- |
-| `blueprints/site.yml` | Site tab in the Panel: brand tagline, footer, default SEO, share image |
+| `blueprints/site.yml` | Site page in the Panel: the Home page card, brand tagline, footer, meta description and share image |
 | `blueprints/pages/home.yml` | The one page: Hero · Excursions · About · Gallery · Contact · SEO tabs |
 | `blueprints/pages/tour.yml` | One tour (subpage of Home): tag, kicker, dates, text, highlights, website, partner, icon, image, PDF |
 | `blueprints/files/*.yml` | File types: `image` (alt text), `plate` (bird name + scientific name), `document` (PDF) |
@@ -39,9 +39,9 @@ can only be edited while the Panel shows the default language.
 
 Images and PDFs are not fields but files sections, so they can be added in any language:
 the portrait is the one `image` file on Home, the plates are the `plate` files on Home (max 8,
-drag to sort), a tour's poster and PDF are its one `image` and one `document` file, the share
-image is the one `image` file on the Site. Each file is uploaded once; only its metadata
-(alt text, bird name) is per language.
+drag to sort), a tour's poster and PDF are its one `image` and one `document` file. The share
+image is a files field on the Site page (upload or pick a site image; one for all languages).
+Each file is uploaded once; only its metadata (alt text, bird name) is per language.
 
 To add English:
 
@@ -86,9 +86,10 @@ full-bleed `-maskable` variants for adaptive icon shapes) and the default share 
 (`share-image.png`, 1200×630). The theme serves the icons at the site root (`/favicon.ico`,
 `/apple-touch-icon.png`, …) and a web app manifest per language (`/site.webmanifest`,
 `/it/site.webmanifest`) via `config/routes.php`, so "Add to Home Screen" on iOS and Android gets
-the right icon and name. The share image is the Open Graph fallback: an image uploaded under
-"Share image" on the Site in the Panel takes precedence. The Panel uses the same icons
-(`panel.favicon` in `site/config/config.php`).
+the right icon and name. The share image is the Open Graph fallback: an image picked in the
+"Share image" field on the Site page in the Panel takes precedence and is cropped to 1200×630
+(the crop follows the image's focus point). The Panel uses the same icons (`panel.favicon` in
+`site/config/config.php`).
 
 ## Deploying
 
