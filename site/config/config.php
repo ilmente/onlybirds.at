@@ -14,6 +14,11 @@ return [
     'panel' => [
         // Panel UI language for new users; existing users keep their own setting
         'language' => 'en',
+        // no Panel plugins with string templates in this theme, so the Vue
+        // template compiler is not needed (smaller, safer Panel bundle)
+        'vue' => [
+            'compiler' => false,
+        ],
     ],
 
     'debug' => false,
