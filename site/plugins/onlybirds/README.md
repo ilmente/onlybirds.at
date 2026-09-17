@@ -72,8 +72,8 @@ Section numbers (01, 02, 03) are computed from the visible sections, so they nev
 Ship the code, keep the content on the server:
 
 - Deploy: `kirby/`, `site/plugins/onlybirds/`, `site/config/`, `site/languages/`, `index.php`, `.htaccess`.
-- Never overwrite: `content/`, `media/`, `site/accounts/`, `site/sessions/`, `site/cache/`, `site/config/.license`.
-- First deployment also uploads the seed `content/` once.
+- Never overwrite: `content/`, `media/`, `site/accounts/`, `site/sessions/`, `site/cache/`, `site/config/.license`, `site/config/env.php`.
+- First deployment also uploads the seed `content/` once, and creates `site/config/env.php` from `env.example.php` with fresh secrets.
 - Production needs a Kirby license (installed from the Panel) and PHP 8.2+.
 
 With git: track the code paths above, ignore `/content/*`, and let a webhook run `git pull` on the server.

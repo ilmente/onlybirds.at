@@ -63,3 +63,7 @@ Icon
 # Local tooling
 # ---------------------------------
 /.claude
+
+# Machine-specific secrets (content.salt, cookie.key)
+# ---------------------------------
+/site/config/env.php
