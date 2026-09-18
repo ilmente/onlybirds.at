@@ -48,7 +48,7 @@ columns:
             marks:
               - link
             width: 1/2
-            help: Right side of the footer, per language, shown in the gold italic of the headlines. Select a word to turn it into a link.
+            help: Right side of the footer, per language, in the same type as the copyright. Select a word to turn it into a link; links are shown in gold.
 
       metadata:
         type: fields

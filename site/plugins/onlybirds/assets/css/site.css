@@ -169,18 +169,18 @@ section{position:relative;padding:clamp(64px,11vh,120px) var(--inline);scroll-ma
 .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:end}
 .contact h2{font-family:var(--display);font-weight:500;font-size:clamp(32px,4.6vw,56px);line-height:1.02;letter-spacing:-.5px;max-width:14ch}
 .contact h2 em{font-style:italic;color:var(--gold)}
-.contact .details{text-align:right}
-.contact .details a{display:block;font-family:var(--display);font-size:clamp(20px,2.6vw,30px);text-decoration:none;margin-bottom:8px;transition:color .2s}
+/* one link per line, each only as wide as its text, so nothing next to the text is clickable */
+.contact .details{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.contact .details a{font-family:var(--display);font-size:clamp(20px,2.6vw,30px);text-decoration:none;transition:color .2s}
 .contact .details a:hover{color:var(--gold)}
 
 /* ---- footer ---- */
 footer{padding:26px var(--inline);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
 /* © in the body font, larger and nudged down, so it does not look like a speck next to the mono text */
 footer .copyright .c{font-family:var(--body);font-size:15px;line-height:1;vertical-align:-1px;margin-right:1px}
-/* credits in the gold display italic of the headlines; links green, gold on hover */
-footer .credits{font-family:var(--display);font-style:italic;font-size:15px;letter-spacing:0;color:var(--gold)}
-footer .credits a{color:var(--ink);text-decoration:none;transition:color .2s}
-footer .credits a:hover{color:var(--gold)}
+/* credits in the footer's mono type like the copyright; links gold, underlined only on hover */
+footer .credits a{color:var(--gold);text-decoration:none;text-underline-offset:3px}
+footer .credits a:hover{text-decoration:underline}
 
 /* ---- error page ---- */
 .error{min-height:50vh}
@@ -221,7 +221,7 @@ body.lightbox-open{overflow:hidden}
   .portrait{max-width:none;width:100%;justify-self:stretch;margin-top:8px}
   .portrait figcaption{text-align:center}
   .plate-grid{grid-template-columns:repeat(2,1fr)}
-  .contact .details{text-align:left}
+  .contact .details{align-items:flex-start}
   .btn{padding:10px 16px;font-size:13.5px}
   /* full-height hero with the copy at the bottom keeps sun and birds clear of the text */
   .hero{min-height:calc(100vh - var(--nav-h));min-height:calc(100svh - var(--nav-h))}
