@@ -175,6 +175,12 @@ section{position:relative;padding:clamp(64px,11vh,120px) var(--inline);scroll-ma
 
 /* ---- footer ---- */
 footer{padding:26px var(--inline);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.5px}
+/* © in the body font, larger and nudged down, so it does not look like a speck next to the mono text */
+footer .copyright .c{font-family:var(--body);font-size:15px;line-height:1;vertical-align:-1px;margin-right:1px}
+/* credits in the gold display italic of the headlines; links green, gold on hover */
+footer .credits{font-family:var(--display);font-style:italic;font-size:15px;letter-spacing:0;color:var(--gold)}
+footer .credits a{color:var(--ink);text-decoration:none;transition:color .2s}
+footer .credits a:hover{color:var(--gold)}
 
 /* ---- error page ---- */
 .error{min-height:50vh}

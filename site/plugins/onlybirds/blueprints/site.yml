@@ -38,11 +38,17 @@ columns:
           footer_copyright:
             label: Footer copyright
             type: text
+            width: 1/2
             translate: false
-            help: "Use {{ year }} to insert the current year automatically."
-          footer_tagline:
-            label: Footer tagline
-            type: text
+            help: "Left side of the footer, plain text. Use {{ year }} to insert the current year automatically."
+          footer_credits:
+            label: Footer credits
+            type: writer
+            inline: true
+            marks:
+              - link
+            width: 1/2
+            help: Right side of the footer, per language, shown in the gold italic of the headlines. Select a word to turn it into a link.
 
       metadata:
         type: fields
